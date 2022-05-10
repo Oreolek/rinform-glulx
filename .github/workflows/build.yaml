@@ -1,0 +1,12 @@
+name: Intest
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: oreolek/inform
+
+    steps:
+      - uses: actions/checkout
+      - name: Run Intest
+        run: intest rinform all
