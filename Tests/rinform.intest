@@ -2,16 +2,13 @@
 -cases		[Main] 'rinform/Tests/Test Cases'
 
 -recipe [Main]
-	set: $I6 = /usr/bin/inform
-	! set: $WORKSPACE = Workspace
-	set: $INT = /home/alexander/bin/dglulxe
+	set: $I6 = inform
+	set: $INT = dglulxe
   set: $INTNAME		= dglulxe
   set: $INTOPTIONS	= -u -q
 	set: $TOC = NO
-	! On the basis of which:
   set: $EXT           = ulx
   set: $I6OPTIONS		= -G -Cu +language_name=Russian +rinform/library --opt DICT_CHAR_SIZE=4 --define MAX_UNICODE_CHARS=1024 --opt MAX_STATIC_DATA=30000
-  show: $PATH
 
 	mkdir: $PATH/_Story_File_Actual
 	set: $I6SOURCE = $PATH/$CASE.inf
@@ -24,6 +21,7 @@
 	set: $IMD5 = $PATH/_md5_Ideal/$CASE.txt
 	set: $A = $PATH/_Transcript_Actual/$CASE.txt
 	set: $I = $PATH/_Transcript_Ideal/$CASE.txt
+  set: $SCRIPT = $PATH/_Scripts/$CASE.txt
 
 	! debugger: lldb -f $I6 -- `$I6OPTIONS $I6SOURCE $STORYFILE
 	step: $I6 `$I6OPTIONS $I6SOURCE $STORYFILE 2>&1
@@ -36,7 +34,6 @@
 		pass: 'passed, no need to run because md5 correct'
 	endif
 
-  set: $SCRIPT = $PATH/_Scripts/$CASE.txt
   if exists: $SCRIPT
     step: $INT `$INTOPTIONS $STORYFILE <$SCRIPT >$A 2>&1
     or: 'compiled, but was unable to run $INTNAME (do you need to make interpreters?)'
@@ -45,6 +42,7 @@
     or: 'compiled, but was unable to run $INTNAME (do you need to make interpreters?)'
   endif
 
+  match text: ${cat $A} ${cat $I}
   exists: $I
   or: 'compiled, but no ideal transcript existed'
   match glulxe transcript: $A $I

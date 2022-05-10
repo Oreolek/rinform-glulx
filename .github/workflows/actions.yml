@@ -4,7 +4,8 @@ on: [push]
 
 jobs:
   build:
-    uses: oreolek/inform@latest
+    runs-on: ubuntu-latest
+    container: oreolek/inform@latest
 
     steps:
       - uses: actions/checkout
