@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    runs-on: oreolek/inform
+    container: oreolek/inform
 
     steps:
       - uses: actions/checkout
