@@ -8,7 +8,7 @@
   set: $INTOPTIONS	= -u -q
 	set: $TOC = NO
   set: $EXT           = ulx
-  set: $I6OPTIONS		= -G -Cu +language_name=Russian +rinform/library --opt DICT_CHAR_SIZE=4 --define MAX_UNICODE_CHARS=1024 --opt MAX_STATIC_DATA=30000
+  set: $I6OPTIONS		= -G -Cu +language_name=Russian +rinform/library --opt DICT_CHAR_SIZE=4
 
 	mkdir: $PATH/_Story_File_Actual
 	set: $I6SOURCE = $PATH/$CASE.inf
