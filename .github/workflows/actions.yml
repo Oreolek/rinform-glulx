@@ -4,10 +4,8 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    container: oreolek/inform@latest
-
+    runs-on: oreolek/inform@latest
     steps:
-      - uses: actions/checkout
+      - uses: actions/checkout@v3
       - name: Run Intest
         run: intest rinform all
