@@ -6,11 +6,14 @@ function cleanString(input) {
   return input.replace(/[^а-яА-ЯЁё\.\?\! >]/g, '').trim()
 }
 
-const Q = new quixe(2)
+const Q = new quixe()
 execSync('inform', ['+../../library,../../libext', '+language_name=Russian', '-DG', '-Cu', '$DICT_CHAR_SIZE=4', '_Sources/ambiguity.inf']);
 Q.init('ambiguity.ulx', function(text) {
-  console.log(text)
+  global.window.text = text[1].content[1]
 });
-Q.input("взять кошку");
 Q.input("взять себя");
-Q.input("конец\nда\n\n");
+assert.equal(global.window.text, 'Ты всегда есть у себя.')
+Q.input("взять кошку");
+assert.equal(global.window.text, 'Взял')
+Q.input("конец");
+Q.input("да");
