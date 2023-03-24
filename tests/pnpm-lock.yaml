@@ -3,15 +3,29 @@ lockfileVersion: 5.4
 specifiers:
   chai: ^4.3.7
   child_process: ^1.0.2
+  quixe: ^0.3.3
 
 dependencies:
   chai: 4.3.7
   child_process: 1.0.2
+  quixe: 0.3.3
 
 packages:
 
   /assertion-error/1.1.0:
     resolution: {integrity: sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==}
+    dev: false
+
+  /caller-path/0.1.0:
+    resolution: {integrity: sha512-UJiE1otjXPF5/x+T3zTnSFiTOEmJoGTD9HmBoxnCUwho61a2eSNn/VwtwuIBDAo2SEOv1AJ7ARI5gCmohFLu/g==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      callsites: 0.2.0
+    dev: false
+
+  /callsites/0.2.0:
+    resolution: {integrity: sha512-Zv4Dns9IbXXmPkgRRUjAaJQgfN4xX5p6+RQFhWUqscdvvK2xK/ZL8b3IXIJsj+4sD+f24NwnWy2BY8AJ82JB0A==}
+    engines: {node: '>=0.10.0'}
     dev: false
 
   /chai/4.3.7:
@@ -56,7 +70,38 @@ packages:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}
     dev: false
 
+  /quixe/0.3.3:
+    resolution: {integrity: sha512-oovN8nPXqBxE19i+y9ImUAUlzth41ESKVZ4shn7IDGcPAw8POhs+MkTlXgpfjYp4PT2Tp4IG1O+Sa3QD+Tehqw==}
+    dependencies:
+      require-uncached: 1.0.3
+      xml-js: 1.6.11
+    dev: false
+
+  /require-uncached/1.0.3:
+    resolution: {integrity: sha512-Xct+41K3twrbBHdxAgMoOS+cNcoqIjfM2/VxBF4LL2hVph7YsF8VSKyQ3BDFZwEVbok9yeDl2le/qo0S77WG2w==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      caller-path: 0.1.0
+      resolve-from: 1.0.1
+    dev: false
+
+  /resolve-from/1.0.1:
+    resolution: {integrity: sha512-kT10v4dhrlLNcnO084hEjvXCI1wUG9qZLoz2RogxqDQQYy7IxjI/iMUkOtQTNEh6rzHxvdQWHsJyel1pKOVCxg==}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
+  /sax/1.2.4:
+    resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
+    dev: false
+
   /type-detect/4.0.8:
     resolution: {integrity: sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g==}
     engines: {node: '>=4'}
+    dev: false
+
+  /xml-js/1.6.11:
+    resolution: {integrity: sha512-7rVi2KMfwfWFl+GpPg6m80IVMWXLRjO+PxTq7V2CDhoGak0wzYzFgUY2m4XJ47OGdXd8eLE8EmwfAmdjw7lC1g==}
+    hasBin: true
+    dependencies:
+      sax: 1.2.4
     dev: false
