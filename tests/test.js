@@ -1,5 +1,3 @@
-const {decode} = require('punycode');
-
 const spawn	= require('child_process').spawn;
 //const fs = require('fs');
 const assert = require('chai').assert;
