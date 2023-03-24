@@ -19,24 +19,28 @@ describe('Тест 2', function() {
     this.game.input("взять кофе");
     assert.equal(global.window.text, 'Ты берёшь кофе.')
     this.game.input("кинуть кофе");
-    assert.equal(global.window.text, 'Брошено.')
+    assert.equal(global.window.text, 'Брошены.')
   });
   it('взять кошку', function () {
     this.game.input("взять кошку");
-    assert.equal(global.window.text, 'Кошке это не понравится.')
+    assert.equal(global.window.text, 'Полосатой кошке это вряд ли понравится.')
   });
   it('дать кофе кошке', function () {
     this.game.input("дать кофе кошке");
-    assert.equal(global.window.text, 'Взял')
+    // TODO здесь нужно проверять несколько строк
+    assert.equal(global.window.text, "(сначала взяв кофе)")
   });
   it('взять статую', function () {
     this.game.input("взять статую");
     assert.equal(global.window.text, 'Ты берёшь статую.')
   });
   it('подарки кошке', function () {
+    this.game.input("взять кота");
     this.game.input("дать кота кошке");
-    assert.equal(global.window.text, 'Взял')
+    assert.equal(global.window.text, 'Полосатую кошку это не заинтересовало.')
+    this.game.input("взять статуэтку");
+    assert.equal(global.window.text, 'Ты берёшь статуэтку.')
     this.game.input("дать статуэтку кошке");
-    assert.equal(global.window.text, 'Взял')
+    assert.equal(global.window.text, 'Полосатую кошку это не заинтересовало.')
   });
 })

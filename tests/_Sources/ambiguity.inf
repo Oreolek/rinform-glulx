@@ -38,12 +38,12 @@ name 'кот',
 has male;
 
 ! Inform должен понимать "взять кошку"
-object catte "кошка" main_room
+object catte "полосат/ая кошк/а" main_room
 with description "Обычная домашняя кошка. Она вряд ли считается экспонатом. Хотя и на куратора выставки не похожа.",
-name 'кошка',
+name 'кошк' 'коша',
 has female animate;
 
-Object fluff "пух" main_room
+Object fluff "пух/" main_room
 with description "Маленький комочек пуха, из тех что можно найти в карманах старого домашнего халата, особенно если начать утро без чая.",
 name 'пух' 'пушок',
 has male;
@@ -51,8 +51,18 @@ has male;
 ! Одновременно зёрна (они) и кофе (оно).
 Object coffee "кофе" main_room
 with description "Зёрна для заварки кофе.",
-name 'кофе',
-has neuter;
+name 'коф' 'кофи' 'зерн' 'зёрн',
+casegen [ beg end csID;
+  switch (csID) {
+    csNom: print "кофейные зёрна"; rtrue;
+    csGen: print "кофейных зёрен"; rtrue;
+    csDat: print "кофейным зёрнам"; rtrue;
+    csAcc: print "кофейные зёрна"; rtrue;
+    csIns: print "кофейными зёрнами"; rtrue;
+    csPre: print "кофейных зёрнах"; rtrue;
+  }
+],
+has pluralname;
 
 
 !============================================================================
