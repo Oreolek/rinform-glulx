@@ -1,11 +1,12 @@
 {
 	"scripts": {
-		"test": "node test.js"
+		"test": "mocha --reporter dot ."
 	},
-  "type": "module",
 	"dependencies": {
 		"chai": "^4.3.7",
 		"child_process": "^1.0.2",
-		"quixe": "^0.3.3"
+		"mocha": "^10.2.0",
+		"quixe": "^0.3.3",
+		"tape": "^5.6.3"
 	}
 }
