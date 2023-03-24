@@ -1,6 +1,12 @@
+const {decode} = require('punycode');
+
 const spawn	= require('child_process').spawn;
 //const fs = require('fs');
 const assert = require('chai').assert;
+
+function cleanString(input) {
+  return input.replace(/[^а-яА-Я\.\?\! ]/g, '').replace("\r", "\n").trim()
+}
 
 describe('Тест игры', function () {
   it('Игра должна соответствовать прохождению', function (done) {
@@ -10,15 +16,11 @@ describe('Тест игры', function () {
     this.out = "";
     this.game.stdout.on('data', function(data){
       let out = data.toString()+"\n"
-      out = out.replace("\x1B[3d", "")
-      out = out.replace("\x1B[21d", "")
-      out = out.replace("\x1B[23d", "")
-      out = out.replace("\x1B[3M", "")
-      out = out.replace("\r", "\n")
-      out = out.trim()
+      out = cleanString(out);
+      console.log(out)
       assert.equal(out, 'eee');
       done()
     })
-    this.game.stdin.write("осм\nвзять кошку\nконец\nда\n\n");
+    this.game.stdin.write("взять кошку\nконец\nда\n\n");
   });
 });
