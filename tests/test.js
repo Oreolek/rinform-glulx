@@ -1,11 +1,6 @@
-const execSync	= require('child_process').execSync;
-const quixe = require('quixe');
 const assert = require('chai').assert;
 
-const Q = new quixe()
-// Компиляция игры
-execSync('inform', ['+../../library,../../libext', '+language_name=Russian', '-DG', '-Cu', '$DICT_CHAR_SIZE=4', '_Sources/ambiguity.inf']);
-
+const test1 = new BasicTest();
 // Интерпретатор Quixe
 Q.init('ambiguity.ulx', function(text) {
   global.window.text = text[1].content[1]
