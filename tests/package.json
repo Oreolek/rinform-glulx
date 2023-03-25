@@ -1,6 +1,6 @@
 {
 	"scripts": {
-		"test": "mocha --reporter dot ."
+		"test": "./test.sh"
 	},
 	"dependencies": {
 		"chai": "^4.3.7",
