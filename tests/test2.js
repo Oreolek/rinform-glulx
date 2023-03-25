@@ -30,16 +30,12 @@ describe('Тест 2', function() {
     // TODO здесь нужно проверять несколько строк
     assert.equal(global.window.text, "(сначала взяв кофе)")
   });
-  it('взять статую', function () {
-    this.game.input("взять статую");
-    assert.equal(global.window.text, 'Ты берёшь статую.')
-  });
   it('подарки кошке', function () {
     this.game.input("взять кота");
     this.game.input("дать кота кошке");
     assert.equal(global.window.text, 'Полосатую кошку это не заинтересовало.')
     this.game.input("взять статуэтку");
-    assert.equal(global.window.text, 'Ты берёшь статуэтку.')
+    assert.equal(global.window.text, 'Ты берёшь странную статую.')
     this.game.input("дать статуэтку кошке");
     assert.equal(global.window.text, 'Полосатую кошку это не заинтересовало.')
   });
