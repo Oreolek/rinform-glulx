@@ -2,9 +2,9 @@ name: Intest
 
 on:
   push:
-    branches: [ main ]
+    branches: main
   pull_request:
-    branches: [ main ]
+    branches: main
 
 jobs:
   build:
@@ -19,5 +19,5 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-     - run: cd tests && npm install
-     - run: cd tests && npm run test
+      - run: cd tests && npm install
+      - run: cd tests && npm run test
