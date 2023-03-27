@@ -28,7 +28,8 @@ Include "VerbLib";
 Class Room has light;
 
 Room main_room "Центральная комната"
-    with description "Центральная комната.";
+    with description "Центральная комната.",
+    has light;
 
 Verb meta 'тест2' 'тест02' * -> Test02;
 

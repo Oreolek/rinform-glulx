@@ -1,4 +1,12 @@
 #!/bin/sh
-node ./node_modules/mocha/mocha.js  --reporter dot test.js
-node ./node_modules/mocha/mocha.js  --reporter dot test2.js
-node ./node_modules/mocha/mocha.js  --reporter dot test3.js
+if [ ! -f regtest.py ]; then
+  wget https://github.com/erkyrath/plotex/raw/master/regtest.py
+fi
+inform +../library,../libext +language_name=Russian -DG -Cu '$DICT_CHAR_SIZE=4' -D _Sources/ambiguity.inf
+inform +../library,../libext +language_name=Russian -DG -Cu '$DICT_CHAR_SIZE=4' -D _Sources/basic_meta_verbs.inf
+inform +../library,../libext +language_name=Russian -DG -Cu '$DICT_CHAR_SIZE=4' -D _Sources/test.inf
+inform +../library,../libext +language_name=Russian -DG -Cu '$DICT_CHAR_SIZE=4' -D _Sources/walking.inf
+python3 ./regtest.py _Tests/test.test > test.out
+python3 ./regtest.py _Tests/walking.test >> test.out
+python3 ./regtest.py _Tests/basic_meta_verbs.test >> test.out
+python3 ./regtest.py _Tests/test2.test >> test.out
